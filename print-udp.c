@@ -592,6 +592,8 @@ udp_print(register const u_char *bp, u_int length,
 		else if (ISPORT(NETBIOS_DGRAM_PORT))
 			nbt_udp138_print((const u_char *)(up + 1), length);
 #endif
+		else if (dport == 1194)
+			openvpn_udp_print((const void *)(up + 1), length);
 		else if (dport == 3456)
 			vat_print((const void *)(up + 1), up);
 		else if (ISPORT(ZEPHYR_SRV_PORT) || ISPORT(ZEPHYR_CLT_PORT))
